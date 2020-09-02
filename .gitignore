@@ -1,5 +1,11 @@
 .gradle
-/build/
+/build/classes
+/build/docs
+/build/generated
+/build/publications
+/build/reports
+/build/test-results
+/build/tmp
 .idea
 
 # Ignore Gradle GUI config

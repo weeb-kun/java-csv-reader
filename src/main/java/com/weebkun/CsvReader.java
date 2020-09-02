@@ -5,6 +5,9 @@ import java.io.*;
 
 /**
  * the reader class for reading csv files.
+ * @author weebkun
+ * @version 1.1.0-alpha
+ * @since 1.0.0
  */
 public class CsvReader implements AutoCloseable {
     private final BufferedReader reader;
@@ -47,6 +50,7 @@ public class CsvReader implements AutoCloseable {
      * closes the reader. implicitly called when used in a try-with-resources block.
      * @throws IOException - if an I/O error occurs
      */
+    @Override
     public void close() throws IOException {
         this.reader.close();
     }
@@ -72,8 +76,10 @@ public class CsvReader implements AutoCloseable {
     @Nullable
     public String[] readColumns(){
         try {
+            // returns an array containing the values
             return this.reader.readLine().split(", ");
         } catch (IOException e){
+            // returns null if an exception occurs.
             return null;
         }
     }
