@@ -1,6 +1,6 @@
 # Installation
 ## maven
-``` xml
+```xml
 <dependency>
    <groupId>com.weebkun</groupId>
    <artifactId>java-csv-reader</artifactId>
