@@ -9,9 +9,40 @@
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
+    id 'maven-publish'
+    id 'com.jfrog.bintray' version '1.8.5'
 }
 
 version = '1.0.0'
+
+publishing {
+    publications {
+        library(MavenPublication) {
+            from components.java
+            groupId = 'com.weebkun'
+            artifactId = 'java-csv-reader'
+            version = '1.0.0'
+        }
+    }
+}
+
+bintray {
+    user = 'weebkun'
+    key = System.getenv('bintrayKey')
+    publications = ['library']
+    pkg {
+        repo = 'java-csv-reader'
+        name = 'java-csv-reader'
+        licenses = ['Apache-2.0']
+        version {
+            name = '1.0.0'
+        }
+    }
+}
+
+test {
+    workingDir = {'src/test/java/com/weebkun/'}
+}
 
 repositories {
     // Use jcenter for resolving dependencies.
