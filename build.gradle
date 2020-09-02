@@ -33,7 +33,6 @@ bintray {
     pkg {
         repo = 'java-csv-reader'
         name = 'java-csv-reader'
-        licenses = ['Apache-2.0']
         version {
             name = '1.0.0'
         }
