@@ -29,7 +29,6 @@ publishing {
 }
 
 signing {
-    useInMemoryPgpKeys(findProperty("signingKey"), findProperty("signingPw"))
     sign publishing.publications.library
 }
 

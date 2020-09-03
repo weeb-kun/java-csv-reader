@@ -13,7 +13,9 @@ pipeline {
         }
         stage('publish') {
             steps {
-                bat './gradlew assemble -x signLibraryPublication'
+                withCredentials([string(credentialsId: 'signingKey', variable: 'signingKey'), string(credentialsId: 'signingPw', variable: 'signingPw'), file(credentialsId: 'secretKeyRing', variable: 'secring')]) {
+                    bat '$./gradlew sign -Psigning.secretKeyRingFile=$secring -Psigning.password=$signingPw -Psigning.keyId=$signingKey'
+                }
                 bat './gradlew bintrayUpload'
             }
         }
