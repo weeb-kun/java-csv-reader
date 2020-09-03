@@ -29,6 +29,9 @@ publishing {
 }
 
 signing {
+    def signingKey = findProperty("signingKey")
+    def signingPw = findProperty("signingPw")
+    useInMemoryPgpKeys(signingKey, signingPw)
     sign publishing.publications.library
 }
 
