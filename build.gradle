@@ -11,7 +11,6 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'com.jfrog.bintray' version '1.8.5'
-    id 'maven'
     id 'signing'
 }
 
@@ -20,6 +19,29 @@ version = '1.1.0-beta'
 publishing {
     publications {
         library(MavenPublication) {
+            pom {
+                name = 'java-csv-reader'
+                description = 'csv reader and writer library for java'
+                url = "https://github.com/weeb-kun/java-csv-reader"
+                licenses {
+                    license {
+                        name = "The Apache License, Version 2.0"
+                        url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'weebkun'
+                        name = 'weeb kun'
+                        email = '2002umpa@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:https://github.com/weeb-kun/java-csv-reader.git'
+                    developerConnection = 'scm:git:https://github.com/weeb-kun/java-csv-reader.git'
+                    url = 'https://github.com/weeb-kun/java-csv-reader'
+                }
+            }
             from components.java
             groupId = 'com.weebkun'
             artifactId = 'java-csv-reader'
