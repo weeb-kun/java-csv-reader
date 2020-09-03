@@ -13,7 +13,7 @@ pipeline {
         }
         stage('publish') {
             steps {
-                bat './gradlew assemble -x sign'
+                bat './gradlew assemble -x signLibraryPublication'
                 bat './gradlew bintrayUpload'
             }
         }
