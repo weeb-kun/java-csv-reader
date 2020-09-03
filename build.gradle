@@ -11,9 +11,11 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'com.jfrog.bintray' version '1.8.5'
+    id 'maven'
+    id 'signing'
 }
 
-version = '1.1.0-alpha'
+version = '1.1.0-beta'
 
 publishing {
     publications {
@@ -21,9 +23,16 @@ publishing {
             from components.java
             groupId = 'com.weebkun'
             artifactId = 'java-csv-reader'
-            version = '1.1.0-alpha'
+            version = '1.1.0-beta'
         }
     }
+}
+
+signing {
+    def signingKey = findProperty("signingKey")
+    def signingPassword = findProperty("signingPw")
+    useInMemoryPgpKeys(signingKey, signingPassword)
+    sign publishing.publications.library
 }
 
 bintray {
@@ -34,7 +43,7 @@ bintray {
         repo = 'java-csv-reader'
         name = 'java-csv-reader'
         version {
-            name = '1.1.0-alpha'
+            name = '1.1.0-beta'
         }
     }
 }
@@ -55,10 +64,6 @@ java {
 }
 
 dependencies {
-
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation 'com.google.guava:guava:28.2-jre'
-
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }

@@ -7,7 +7,8 @@ import java.io.IOException;
 /**
  * Writer class for writing to csv files.
  * @author weebkun
- * @version 1.1.0-alpha
+ * @version 1.1.0-beta
+ * @since 1.1.0-alpha
  */
 public class CsvWriter implements AutoCloseable {
 

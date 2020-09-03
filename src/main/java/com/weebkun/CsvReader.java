@@ -6,7 +6,7 @@ import java.io.*;
 /**
  * the reader class for reading csv files.
  * @author weebkun
- * @version 1.1.0-alpha
+ * @version 1.1.0-beta
  * @since 1.0.0
  */
 public class CsvReader implements AutoCloseable {

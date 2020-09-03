@@ -13,6 +13,7 @@ pipeline {
         }
         stage('publish') {
             steps {
+                bat './gradlew sign'
                 bat './gradlew bintrayUpload'
             }
         }
