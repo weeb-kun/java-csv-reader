@@ -29,9 +29,6 @@ publishing {
 }
 
 signing {
-    def signingKey = findProperty("signingKey")
-    def signingPassword = findProperty("signingPw")
-    useInMemoryPgpKeys(signingKey, signingPassword)
     sign publishing.publications.library
 }
 
@@ -64,6 +61,8 @@ java {
 }
 
 dependencies {
+    implementation 'com.google.guava:guava:28.2-jre'
+
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
