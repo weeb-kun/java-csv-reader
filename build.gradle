@@ -36,6 +36,16 @@ bintray {
     user = 'weebkun'
     key = System.getenv('bintrayKey')
     publications = ['library']
+    filesSpec {
+        from("${buildDir}/libs") {
+            include '*.jar.asc'
+        }
+        from("${buildDir}/publications/library"){
+            include 'pom-default.xml.asc'
+            rename 'pom-default.xml.asc', "${project.name}-${project.version}.pom.asc"
+        }
+        into "${project.group.replaceAll(/\./, '/')}/${project.name}/${project.version}"
+    }
     pkg {
         repo = 'java-csv-reader'
         name = 'java-csv-reader'
